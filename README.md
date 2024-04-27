@@ -2,17 +2,28 @@
 daily planner in Electron.js and Vue 3 and Typeascript
 
 # Install packages
-`npm i`
+```
+npm i
+```
 
 # Start project
 
 start the build and create relese folder for mac:
-`npm run build:mac`
-Into `release/{version}` folder, you can find the installer
+```
+npm run build:mac
+```
+
+or
 
 start the build and create relese folder for win:
-`npm run build:win`
+```
+npm run build:win
+```
+
+
 Into `release/{version}` folder, you can find the installer
 
 start the dev mode
-`npm run dev`
+```
+npm run dev
+```
