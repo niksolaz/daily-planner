@@ -12,3 +12,4 @@ function IpcMainEndpoints() {
   };
 }
 exports.IpcMainEndpoints = IpcMainEndpoints;
+//# sourceMappingURL=endpoints.js.map

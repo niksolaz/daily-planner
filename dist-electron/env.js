@@ -7,3 +7,4 @@ process.env.PUBLIC = process.env.VITE_DEV_SERVER_URL ? path.join(process.env.DIS
 process.env.TYPE = os.type();
 process.env.TEMP_DIR = os.tmpdir();
 process.env.PLATFORM = os.platform();
+//# sourceMappingURL=env.js.map
