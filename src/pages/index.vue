@@ -38,7 +38,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { IListToday } from '../types'; // Import the IListToday interface from the correct location
+import { IListToday } from '../types';
 
 import AppInput from '../components/AppInput.vue';
 
