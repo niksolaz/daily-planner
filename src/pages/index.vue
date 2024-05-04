@@ -46,7 +46,7 @@ import { useI18n } from 'vue-i18n';
 
 const { d, t } = useI18n({ useScope: 'global' })
 
-const listToday = ref([
+const listToday = ref<IListToday[]>([
   { label: 'Monday', isCheck: true },
   { label: 'Tuesday', isCheck: true },
   { label: 'Wednesday', isCheck: true },
@@ -54,9 +54,9 @@ const listToday = ref([
   { label: 'Friday', isCheck: true },
   { label: 'Saturday', isCheck: true },
   { label: 'Sunday', isCheck: true }
-]) as IListToday[];
+]);
 
-const listTodayClose = ref([]) as IListToday[];
+const listTodayClose = ref<IListToday[]>([]);
 
 
 function onAddNew() {

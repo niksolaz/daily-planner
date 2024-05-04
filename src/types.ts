@@ -1,5 +1,6 @@
 
-export interface IListToday {
+
+export interface IListToday{
   label: string;
-  check: boolean;
+  isCheck: boolean;
 }
