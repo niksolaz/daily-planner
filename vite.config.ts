@@ -41,7 +41,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            sourcemap: isDevelopment,
+            /* sourcemap: isDevelopment, */
             minify: false,  //isProduction, // todo: enable minification and check why it breaks the app into main.js
             outDir: 'dist-electron/main',
             rollupOptions: {
@@ -59,7 +59,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            sourcemap: isDevelopment,
+            /* sourcemap: isDevelopment, */
             minify: false, //isProduction,
             outDir: 'dist-electron/preload',
             rollupOptions: {
@@ -77,7 +77,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            sourcemap: isDevelopment,
+            /* sourcemap: isDevelopment, */
             minify: false, //isProduction,
             outDir: 'dist-electron/main/events/',
             rollupOptions: {
@@ -95,7 +95,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            sourcemap: isDevelopment,
+            /* sourcemap: isDevelopment, */
             minify: false, //isProduction,
             outDir: 'dist-electron/',
             rollupOptions: {
@@ -115,6 +115,6 @@ export default defineConfig({
   })() : undefined,
   clearScreen: false,
   build: {
-    sourcemap: true
+    /* sourcemap: true */
   }
 })

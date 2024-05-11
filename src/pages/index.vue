@@ -9,6 +9,7 @@
         <app-input
           :is-check="day.isCheck"
           :label="day.label"
+          :is-disabled="false"
           @on-edit="onEdit($event, i)"
         />
       </div>

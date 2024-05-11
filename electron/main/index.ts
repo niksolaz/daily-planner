@@ -41,7 +41,10 @@ const showNotification = () => new Notification({ title: MSG.title, body: MSG.bo
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Daily Planner Main',
+    width: 1280,
+    height: 800,
     webPreferences: {
+      webSecurity: true,
       preload,
       nodeIntegration: false,
       contextIsolation: true,

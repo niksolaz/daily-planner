@@ -42,8 +42,8 @@ const checkValue = ref(false);
 
 
 // methods
-function onInput(e) {
-  labelValue.value = e.target.value;
+function onInput(e: Event) {
+  labelValue.value = (e.target as HTMLInputElement).value;
   if(labelValue.value !== '') {
     checkValue.value = true;
   } else {
@@ -55,8 +55,8 @@ function onInput(e) {
     });
 }
 
-function onCheck(e) {
-    checkValue.value = e.target.checked;
+function onCheck(e: Event) {
+    checkValue.value = (e.target as HTMLInputElement).checked //e.target.checked;
     emit('onEdit', {
         label: labelValue.value,
         isCheck: checkValue.value
