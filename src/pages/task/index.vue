@@ -1,5 +1,8 @@
 <template>
   <div class="p-10 space-y-5">
+    <div>
+      <button class="text-blue-700 p-1 border border-blue-700 rounded-lg"  @click="goToDashboard">Go Home Page</button>
+    </div>
     <div class="space-y-2 w-1/3 p-2 border">
       <span class="text-sm font-semibold">Task Open</span>
       <div
@@ -44,6 +47,9 @@ import { IListToday } from '../../types';
 import AppInput from '../../components/AppInput.vue';
 
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const { d, t } = useI18n({ useScope: 'global' })
 
@@ -79,6 +85,11 @@ function onEdit(element: IListToday, i: number) {
     return
   } 
   (listToday.value[i] as IListToday) = element;
+}
+
+function goToDashboard() {
+  console.log('goToDashboard')
+  router.push('/' );
 }
 </script>
 

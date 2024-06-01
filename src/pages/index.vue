@@ -1,5 +1,8 @@
 <template>
   <div class="p-10 space-y-5">
+    <div>
+      <app-button @onButton="goToTask" label="go task" variant="primary"/>
+    </div>
     <div class="space-y-2">
       <h3>Buttons</h3>
       <app-button @onButton="onButton" label="go task" variant="primary"/>
@@ -46,6 +49,11 @@ import AppSelect from '../components/AppSelect.vue';
 import EffectSquare from '../components/EffectSquare.vue';
 
 import IconPlus from '../assets/icons/plus.svg';
+
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 // methods
 function onButton() {
   console.log('onButton')
@@ -53,6 +61,11 @@ function onButton() {
 
 function onSelect(ev: any) {
   console.log('onSelect', ev)
+}
+
+function goToTask() {
+  console.log('goToTask')
+  router.push('/task' );
 }
 </script>
 
