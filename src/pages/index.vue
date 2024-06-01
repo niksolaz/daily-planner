@@ -33,12 +33,17 @@
       <app-select label="lg" size="lg" :options="['yes', 'no', 'maybe']"/>
       <app-select label="full" size="full" @on-select="onSelect($event)" :options="['yes', 'no', 'maybe']" />
     </div>
+    <div class="space-y-2">
+      <h3>Effect Square</h3>
+      <effect-square />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import AppButton from '../components/AppButton.vue';
 import AppSelect from '../components/AppSelect.vue';
+import EffectSquare from '../components/EffectSquare.vue';
 
 import IconPlus from '../assets/icons/plus.svg';
 // methods
