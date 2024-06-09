@@ -1,7 +1,7 @@
 <template>
   <div class="p-10 space-y-5">
     <div>
-      <button class="text-blue-700 p-1 border border-blue-700 rounded-lg"  @click="goToDashboard">Go Home Page</button>
+      <app-button label="Go Home"  @on-button="goToDashboard" />
     </div>
     <div class="space-y-2 w-1/3 p-2 border">
       <span class="text-sm font-semibold">Task Open</span>
@@ -17,7 +17,7 @@
         />
       </div>
       <div>
-        <button class="text-green-700 p-1 border border-green-700 rounded-lg" @click="onAddNew">+ Add New</button>
+        <app-button label="+ Add New" @on-button="onAddNew" />
       </div>
     </div>
     <div class="space-y-2 w-1/3 p-2 border" v-if="listTodayClose.length > 0">
@@ -33,7 +33,7 @@
         />
       </div>
       <div>
-        <button class="text-red-700 p-1 border border-red-700 rounded-lg"  @click="onEmpty">- Empy List</button>
+        <app-button label="- Empy List" variant="secondary" @on-button="onEmpty" />
       </div>
     </div>
   </div>
@@ -45,6 +45,7 @@ import { ref } from 'vue';
 import { IListToday } from '../../types';
 
 import AppInput from '../../components/AppInput.vue';
+import AppButton from '../../components/AppButton.vue';
 
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';

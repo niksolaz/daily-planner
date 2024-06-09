@@ -5,9 +5,9 @@
     </div>
     <div class="space-y-2">
       <h3>Buttons</h3>
-      <app-button @onButton="onButton" label="go task" variant="primary"/>
+      <app-button @onButton="onButton" label="primary" variant="primary"/>
       <app-button @onButton="onButton" label="disable" variant="primary" :is-disabled="true"/>
-      <app-button @onButton="onButton" label="go task" variant="secondary"/>
+      <app-button @onButton="onButton" label="secondary" variant="secondary"/>
       <app-button @onButton="onButton" label="add size sm" size="sm">
         <template #icon>
           <icon-plus class="w-4 h-4 min-w-4 min-h-4 text-white" />
