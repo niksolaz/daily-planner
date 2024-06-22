@@ -12,7 +12,8 @@
     "build:win": "vue-tsc --noEmit && vite build && electron-builder -w",
     "build:mac": "vue-tsc --noEmit && vite build && electron-builder -m",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "json:server": "json-server --watch data/db.json --port 8000"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^0.12.0",
@@ -42,6 +43,7 @@
     "@vueuse/core": "^9.13.0",
     "axios": "^1.6.0",
     "dotenv": "^16.1.4",
+    "json-server": "^1.0.0-beta.1",
     "pinia": "^2.0.29",
     "sanitize-html": "^2.11.0",
     "vue-i18n": "^9.3.0",
