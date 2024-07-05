@@ -30,6 +30,11 @@ module.exports = {
       name: 'server',
       script: 'cd server && npm run start',  /* http://localhost:8000 */
       watch: true,
+    },
+    {
+      name: 'docs',
+      script:  'npm run docs:dev', /* http://localhost:5173/ */
+      watch: true,
     }
   ]
 };
