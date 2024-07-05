@@ -28,20 +28,21 @@ export default defineConfig({
     }),
     svgLoader({ defaultImport: 'component' }),
     Pages(), // todo: this plugin is kinda deprecated, change it for the one suggested at: https://github.com/hannoeru/vite-plugin-pages#vue
+    /*
     electron([
       {
         // Main-Process entry file of the Electron App.
         entry: 'electron/main/index.ts',
         onstart(options) {
           if (process.env.VSCODE_DEBUG) {
-            console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
+            console.info('[startup] Electron App')
           } else {
             options.startup()
           }
         },
         vite: {
           build: {
-            /* sourcemap: isDevelopment, */
+            // sourcemap: isDevelopment,
             minify: false,  //isProduction, // todo: enable minification and check why it breaks the app into main.js
             outDir: 'dist-electron/main',
             rollupOptions: {
@@ -59,7 +60,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            /* sourcemap: isDevelopment, */
+            // sourcemap: isDevelopment,
             minify: false, //isProduction,
             outDir: 'dist-electron/preload',
             rollupOptions: {
@@ -77,7 +78,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            /* sourcemap: isDevelopment, */
+            // sourcemap: isDevelopment,
             minify: false, //isProduction,
             outDir: 'dist-electron/main/events/',
             rollupOptions: {
@@ -95,7 +96,7 @@ export default defineConfig({
         },
         vite: {
           build: {
-            /* sourcemap: isDevelopment, */
+            // sourcemap: isDevelopment,
             minify: false, //isProduction,
             outDir: 'dist-electron/',
             rollupOptions: {
@@ -105,16 +106,14 @@ export default defineConfig({
         }
       }
     ])
+      */
   ],
-  server: !!process.env.VSCODE_DEBUG ? (() => {
-    const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
-    return {
-      host: url.hostname,
-      port: +url.port
-    }
-  })() : undefined,
+  server: {
+    port: 3030,
+    host: true, // necessario se si desidera accedere dall'esterno, ad esempio tramite Docker
+  },
   clearScreen: false,
   build: {
-    /* sourcemap: true */
+    // sourcemap: true
   }
 })
