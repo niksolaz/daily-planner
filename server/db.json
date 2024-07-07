@@ -2,6 +2,7 @@
   "tasks": [
     {
       "id": "1718834400000",
+      "userId": "123",
       "list" : [
         {
           "id": 1,
@@ -32,6 +33,7 @@
     },
     {
       "id": "1718990236000",
+      "userId": "123",
       "list" : [
         {
           "id": 1,
@@ -62,6 +64,7 @@
     },
     {
       "id": "1719076507863",
+      "userId": "124",
       "list": [
         {
           "id": 1,
@@ -89,6 +92,24 @@
           "label": "Andare a lavoro"
         }
       ]
+    }
+  ],
+  "users": [
+    {
+      "id": "123",
+      "name": "Nicola",
+      "surname": "Solazzo",
+      "username": "niksolaz",
+      "email": "solazzonicola@test.com",
+      "isAdmin": true
+    },
+    {
+      "id": "124",
+      "name": "Mario",
+      "surname": "Rossi",
+      "username": "redmar1765",
+      "email": "mariorossi@test.com",
+      "isAdmin": false
     }
   ]
 }
