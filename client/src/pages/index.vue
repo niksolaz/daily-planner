@@ -1,29 +1,31 @@
 <template>
   <div class="p-10 space-y-5">
     <div>
-      <app-button @onButton="goToTask" label="go task" variant="primary"/>
-    </div>
-    <div>
       <h1>Welcome on Daily Planner</h1>
-      <ul v-if="users">
-        <li 
+      <div 
+        v-if="users"
+        class="space-y-5 mt-5" 
+      >
+        <div 
           v-for="(user,i) in users" 
           :key="i" 
-          class="space-y-5 text-sm font-medium text-blue-700 border-b py-5 w-1/3" 
         >
-          <div>
-            <span 
-              class="block capitalize"
-              :class="{
-                'text-green-700 font-semibold': user.isAdmin
-              }"
-            >{{ user.username }}</span>
-            <span :id="`info-${i}`">
-              {{ user.name }} - {{ user.surname }} - {{ user.email }}
-            </span>
-          </div>
-        </li>
-      </ul>
+          <app-button 
+            :label="user.username" 
+            @onButton="goToTask(user.id)" 
+            @mouseover="showInfo(i, true)"
+            @mouseleave="showInfo(i, false)"
+            :variant="user.isAdmin ? 'secondary' : 'primary'"
+          />
+          <ul 
+            :id="`info-${i}`" 
+            class="hidden py-4 font-medium text-gray-700 space-y-2 border-b w-1/3 rounded-xl shadow-xl text-lg px-2"
+          >
+            <li><b>{{ user.username }}</b></li>
+            <li><b>{{ user.email }}</b></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,9 +42,18 @@ const api = useApi();
 const users = ref(null)
 
 // methods
-function goToTask() {
+function showInfo(idx, value) {
+  if(value) {
+    // rendi visible il tag
+    document.getElementById(`info-${idx}`).style.display = 'block'
+  } else {
+    document.getElementById(`info-${idx}`).style.display = 'none'
+  }
+}
+
+function goToTask(userId) {
   console.log('goToTask')
-  router.push('/task' );
+  router.push({ path:'/task', query: { userId: userId}});
 }
 
 onMounted(async () => {

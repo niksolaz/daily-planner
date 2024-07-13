@@ -73,9 +73,12 @@ import AppInput from '../../components/AppInput.vue';
 import AppButton from '../../components/AppButton.vue';
 
 import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useApi } from '../../composables/useApi'
 
 const router = useRouter();
+const route = useRoute();
+const api = useApi(); 
 
 const { d, t } = useI18n({ useScope: 'global' })
 
@@ -107,14 +110,6 @@ function onEdit(element: IListToday, i: number) {
     return
   } 
   (listToday.value[i] as IListToday) = element;
-}
-
-async function GET() {
-  const response =  await fetch('http://localhost:8000/tasks', {
-    method: 'GET'
-  })
-  const data = await response.json()
-  return data
 }
 
 function goToDashboard() {
@@ -166,8 +161,7 @@ function resetDay() {
 }
 
 onMounted(async () => {
-  console.log(await GET())
-  listSelectedDay.value = await GET()
+  listSelectedDay.value = await  api.GET(`http://localhost:8000/tasks?userId=${route.query.userId}`)
 })
 </script>
 
