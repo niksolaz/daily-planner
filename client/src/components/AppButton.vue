@@ -1,15 +1,16 @@
 <template>
   <button 
     @click="onButton" 
-    class="flex items-center justify-center rounded-md px-4 py-2 space-x-2 min-w-20"
+    class="flex items-center justify-center rounded-md"
     :class="{
       'bg-blue-500 shadow shadow-blue-700 hover:bg-blue-600 active:shadow-blue-900 active:shadow-inner': variant === 'primary' && !isDisabled,
       'bg-orange-500 shadow shadow-orange-700 hover:bg-orange-600 active:shadow-orange-900 active:shadow-inner': variant === 'secondary' && !isDisabled,
       'bg-grey-500 shadow shadow-grey-700 cursor-default': isDisabled,
-      'w-20': size === 'sm',
-      'w-32': size === 'md',
-      'w-44': size === 'lg',
-      'w-full': size === 'full',
+      'w-20 px-4 py-2 space-x-2': size === 'sm',
+      'w-32 px-4 py-2 space-x-2': size === 'md',
+      'w-44 px-4 py-2 space-x-2': size === 'lg',
+      'w-full px-4 py-2 space-x-2': size === 'full',
+      'size-8': size === 'square'
 
     }"
   >
@@ -46,7 +47,7 @@ defineProps({
   size: {
     type: String,
     default: 'md',
-    validator: (value: string) => ['sm', 'md', 'lg', 'full'].includes(value)
+    validator: (value: string) => ['sm', 'md', 'lg', 'full', 'square'].includes(value)
   }
 })
 // emits

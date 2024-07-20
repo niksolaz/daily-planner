@@ -28,6 +28,11 @@
           <icon-plus class="w-4 h-4 min-w-4 min-h-4 text-white" />
         </template>
       </app-button>
+      <app-button size="square">
+        <template #icon>
+          <icon-plus class="w-4 h-4 text-white rotate-45" />
+        </template>
+      </app-button>
     </div>
     <div class="space-y-2">
       <h3>Select</h3>
