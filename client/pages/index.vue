@@ -13,8 +13,6 @@
           <app-button 
             :label="user.username" 
             @onButton="goToTask(user.id)" 
-            @mouseover="showInfo(i, true)"
-            @mouseleave="showInfo(i, false)"
             :variant="user.isAdmin ? 'secondary' : 'primary'"
           />
           <ul 
@@ -42,15 +40,6 @@ const api = useApi();
 const users = ref(null)
 
 // methods
-function showInfo(idx, value) {
-  if(value) {
-    // rendi visible il tag
-    document.getElementById(`info-${idx}`).style.display = 'block'
-  } else {
-    document.getElementById(`info-${idx}`).style.display = 'none'
-  }
-}
-
 function goToTask(userId) {
   console.log('goToTask')
   router.push({ path:'/task', query: { userId: userId}});

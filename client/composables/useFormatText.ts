@@ -1,4 +1,4 @@
-import { TText } from '../../types'
+import { TText } from '../types'
 
 export const useFormatText = (t: TText): string => {
   if (typeof t !== 'string' && typeof t !== 'number') {

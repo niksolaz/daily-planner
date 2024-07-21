@@ -1,5 +1,6 @@
 <template>
   <div>
+    test chiamata supabase
     <ul>
       <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
     </ul>
@@ -23,5 +24,6 @@
 
   onMounted(() => {
     getCountries()
+    console.log(config.public)
   })
 </script>

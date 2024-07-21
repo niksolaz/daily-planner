@@ -1,5 +1,6 @@
 <template>
   <div class="p-10 space-y-5">
+    <!--
     <div>
       <app-button label="Go Home" @on-button="goToDashboard" />
     </div>
@@ -44,10 +45,12 @@
         <app-button label="- Empy List" variant="secondary" @on-button="onEmpty" />
       </div>
     </div>
+    -->
   </div>
 </template>
 
 <script setup lang="ts">
+/*
   import { ref, onMounted } from 'vue';
 
   import { IListToday, IListSelectedDay } from '../../types';
@@ -155,4 +158,5 @@
   onMounted(async () => {
     listSelectedDay.value = await api.GET(`http://localhost:8000/tasks?userId=${route.query.userId}`)
   })
+    */
 </script>
