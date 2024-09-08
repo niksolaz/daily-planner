@@ -4,26 +4,27 @@
     <ul>
       <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
     </ul>
+    <p>{{ errorMessage }}</p>
   </div>
 </template>
 <script setup>
-  import { createClient } from '@supabase/supabase-js'
-  import { useRuntimeConfig } from '#app'
 
-  const config = useRuntimeConfig()
-  const supabaseUrl = config.public.supabaseUrl
-  const supabaseKey = config.public.supabaseKey
+  const api = useApi()
 
-  const supabase = createClient(supabaseUrl, supabaseKey)
   const countries = ref([])
+  const errorMessage = ref('')
 
   async function getCountries() {
-    const { data } = await supabase.from('countries').select()
-    countries.value = data
+    try {
+      const data = await api.GET('/api/countries')
+      countries.value = data
+    } catch (error) {
+      console.error('Errore:', error)
+      errorMessage.value = 'Errore nel recupero dei paesi'
+    }
   }
 
-  onMounted(() => {
-    getCountries()
-    console.log(config.public)
+  onMounted(async () => {
+    await getCountries()
   })
 </script>

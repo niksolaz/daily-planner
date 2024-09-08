@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      supabaseUrl: process.env.NUXT_ENV_SUPABASE_URL,
-      supabaseKey: process.env.NUXT_ENV_SUPABASE_KEY
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY
     }
   },
   postcss: {
@@ -27,5 +27,11 @@ export default defineNuxtConfig({
         }
       })
     ]
+  },
+  nitro: {
+    routeRules: {
+      '/api/countries': { handler: '~/server/api/countries' },
+      '/api/countries/:id': { handler: '~/server/api/countries' },
+    },
   }
 })
