@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: [
     // add more generic rulesets here, such as:
     // 'eslint:recommended',
