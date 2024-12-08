@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { useFormatText } from './useFormatText'
+import type { TText } from '~/types'
 
 const proofTest = {
   string: {
@@ -11,23 +12,23 @@ const proofTest = {
     result: '3'
   },
   object: {
-    key: {},
+    key: {} as unknown as TText,
     result: 'Invalid type'
   },
   bool: {
-    key: true,
+    key: true as unknown as TText,
     result: 'Invalid type'
   },
   array: {
-    key: [],
+    key: [] as unknown as TText,
     result: 'Invalid type'
   },
   Null: {
-    key: null,
+    key: null as unknown as TText,
     result: 'Invalid type'
   },
   Undefined: {
-    key: undefined,
+    key: undefined as unknown as TText,
     result: 'Invalid type'
   }
 }

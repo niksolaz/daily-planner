@@ -28,10 +28,5 @@ export default defineNuxtConfig({
       })
     ]
   },
-  nitro: {
-    routeRules: {
-      '/api/countries': { handler: '~/server/api/countries' },
-      '/api/countries/:id': { handler: '~/server/api/countries' },
-    },
-  }
+  nitro: {}
 })

@@ -1,11 +1,9 @@
-import { TText } from '../types'
+import type { TText } from '~/types'
 
-export const useFormatText = (t: TText): string => {
-  if (typeof t !== 'string' && typeof t !== 'number') {
+export function useFormatText(text: TText): string {
+  if (typeof text !== 'string' && typeof text !== 'number') {
     throw new Error('Invalid type')
   }
-  if (typeof t === 'number') {
-    return t.toString()
-  }
-  return t.toLowerCase()
+  
+  return String(text).toLowerCase()
 }

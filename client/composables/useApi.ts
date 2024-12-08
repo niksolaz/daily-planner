@@ -1,33 +1,39 @@
-export const useApi = (headers: any = null) => {
+export const useApi = (headers: Record<string, string> | null = null) => {
   return {
     GET: async (url: string) => {
-      const response =  await fetch(url, {
-        method: 'GET'
-      })
-      const data = await response.json()
-      return data
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: headers || undefined
+        })
+        const data = await response.json()
+        return data
+      } catch (error) {
+        console.error(error)
+      }
     },
-    POST: async (url: string, body: any) => {
-      const response =  await fetch(url, {
+    POST: async (url: string, body: Record<string, unknown>) => {
+      const response = await fetch(url, {
         method: 'POST',
-        headers,
-        body
+        headers: headers || undefined,
+        body: JSON.stringify(body)
       })
       const data = await response.json()
       return data
     },
-    PATCH: async (url: string, body: any) => {
-      const response =  await fetch(url, {
+    PATCH: async (url: string, body: Record<string, unknown>) => {
+      const response = await fetch(url, {
         method: 'PATCH',
-        headers,
-        body
+        headers: headers || undefined,
+        body: JSON.stringify(body)
       })
       const data = await response.json()
       return data
     },
-    DELETE: async (url: string, headers: any) => {
-      const response =  await fetch(url, {
-        method: 'DELETE'
+    DELETE: async (url: string) => {
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: headers || undefined
       })
       const data = await response.json()
       return data
